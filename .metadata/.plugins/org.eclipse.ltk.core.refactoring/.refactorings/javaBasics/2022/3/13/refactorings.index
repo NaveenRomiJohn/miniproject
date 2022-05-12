@@ -1,0 +1,17 @@
+1648029394354	Rename package 'example'
+1648093635338	Rename type 'p1'
+1648114271116	Rename type 'startUp'
+1648114413954	Rename compilation unit 'Demo.java'
+1648175995545	Move compilation unit
+1648176070334	Move compilation unit
+1648183271710	Rename type 'testCalculator'
+1648199269042	Encapsulate field 'yearOfPurchase'
+1648199307684	Encapsulate field 'regNo'
+1648199334896	Encapsulate field 'color'
+1648199367945	Encapsulate field 'regNo'
+1648199373730	Encapsulate field 'fuel'
+1648200213898	Encapsulate field 'author'
+1648200219281	Encapsulate field 'publishedYear'
+1648200225969	Encapsulate field 'price'
+1648200233332	Encapsulate field 'title'
+1648200908814	Encapsulate field 'language'

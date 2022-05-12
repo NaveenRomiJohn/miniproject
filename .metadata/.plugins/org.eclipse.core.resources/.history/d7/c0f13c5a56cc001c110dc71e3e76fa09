@@ -1,0 +1,65 @@
+package com.chainsys.jdbc;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.*;
+
+public class Preparedstatement 
+{
+	public static void main(String[] args) throws Exception
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle"); 
+	
+		PreparedStatement stmt=con.prepareStatement("insert into TABLE1 values(?,?,?,?,?)");
+		//insert details in console
+
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));     
+		do
+		{
+		System.out.println("enter id:");  
+		int id=Integer.parseInt(br.readLine());  
+		System.out.println("enter name:");  
+		String name=br.readLine();  
+		System.out.println("enter age:");  
+		int age=Integer.parseInt(br.readLine());
+		System.out.println("enter dept:");  
+		String dept=br.readLine();
+		System.out.println("enter marks:");  
+		int marks=Integer.parseInt(br.readLine());
+		//values sets in table
+		stmt.setInt(1, id);
+		stmt.setString(2, name);
+		stmt.setInt(3,age);
+		stmt.setString(4,dept);
+		stmt.setInt(5,marks);
+		
+		//checking whether the table is inserted or not
+		int i=stmt.executeUpdate();
+		System.out.println(i+ " row inserted");    
+		
+		System.out.println("Do you want to continue: y/n");  
+		String s=br.readLine();  
+		if(s.startsWith("n"))
+		{  
+			break;  
+		}  
+		}while(true); 
+		con.close();
+	}
+}
+//Scanner sc=new Scanner(System.in);
+//System.out.println("Enter ID");
+//int id=sc.nextInt();
+//System.out.println("Enter Name");
+//String name=sc.nextLine();
+//System.out.println("Enter Age");
+//int age=sc.nextInt();
+//System.out.println("Enter Dept");
+//String dept=sc.nextLine();
+//System.out.println("Enter Marks");
+//int marks=sc.nextInt();
+//stmt.setInt(1, 100);
+//stmt.setString(2, "aravind");
+//stmt.setInt(3,23);
+//stmt.setString(4,"ece");
+//stmt.setInt(5,90);

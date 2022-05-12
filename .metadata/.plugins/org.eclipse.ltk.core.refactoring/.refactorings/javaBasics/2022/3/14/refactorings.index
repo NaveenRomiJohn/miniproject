@@ -1,0 +1,8 @@
+1648616260335	Move compilation unit
+1648631080072	Rename type 'printFizzBuzz'
+1648632511776	Rename compilation unit 'climateCheck.java'
+1648638838111	Encapsulate field 'accountNumber'
+1648638862213	Encapsulate field 'customerName'
+1648638868628	Encapsulate field 'address'
+1648638873515	Encapsulate field 'phoneNumber'
+1648638879348	Encapsulate field 'emailID'
