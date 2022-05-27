@@ -3,6 +3,8 @@ package com.chainsys.collections.set;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import com.chainsys.collections.list.Emp;
+
 public class SetHashSetDemo 
 {
 	public static void main(String args[])

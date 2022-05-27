@@ -18,15 +18,15 @@ public class ListArrayListDemo
 		//System.out.println("Initial size of stringArrayList: "+stringArrayList.size());
 		try
 		{
-			Emp e1=new Emp(100);
+			Emp e1=new Emp(100,"");
 			e1.Name="java";
-			Emp e2=new Emp(100);
+			Emp e2=new Emp(100,"");
 			e2.Name="java";
 			List<Emp> stringArrayList=new ArrayList<>();
 			stringArrayList.add(e1);
 			stringArrayList.add(e2);
 			System.out.println(stringArrayList);
-			Collections.sort(stringArrayList);
+			//Collections.sort(stringArrayList);
 //			stringArrayList.add("Car");
 //			stringArrayList.add("Auto");
 //			stringArrayList.add("Egg");
