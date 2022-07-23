@@ -39,7 +39,7 @@ public class AppointmentDao
 	}
 
 	public static int insertAppointment(Appointment newap) {
-		String insertquery = "insert into Appointments(appoint_Id,appoint_Date,doc_id,patient_name,fees_collected) values (?,?,?,?,?)";
+		String insertquery = "insert into Appointments(appointment_Id,appointment_Date,doctor_id,patient_name,fees_collected) values (?,?,?,?,?)";
 		Connection con = null;
 		int rows = 0;
 		PreparedStatement ps = null;
@@ -72,7 +72,7 @@ public class AppointmentDao
 	}
 
 	public static int updateAppointment(Appointment newap) {
-		String updatequery = "update appointments set appoint_date=?,doc_id=?,patient_name=?,fees_collected=? where appoint_id=?";
+		String updatequery = "update appointments set appointment_Date=?,doctor_id=?,patient_name=?,fees_collected=? where appointment_Id=?";
 		Connection con = null;
 		int rows = 0;
 		PreparedStatement ps = null;
@@ -104,7 +104,7 @@ public class AppointmentDao
 	}
 
 	public static int updatePatientName(int id, String name) {
-		String updatequery = "update appointments set patient_name=? where appoint_id=?";
+		String updatequery = "update appointments set patient_name=? where appointment_Id=?";
 		Connection con = null;
 		int rows = 0;
 //			int rows ;
@@ -134,7 +134,7 @@ public class AppointmentDao
 	}
 
 	public static int updateFeesCollected(int id, long update_fees) {
-		String updatequery = "update appointments set fees_collected=? where appoint_id=?";
+		String updatequery = "update appointments set fees_collected=? where appointment_Id=?";
 		Connection con = null;
 		int rows = 0;
 //			int rows ;
@@ -163,7 +163,7 @@ public class AppointmentDao
 	}
 
 	public static int deleteAppointment(int id) {
-		String deletequery = "delete from appointments where appoint_id=?";
+		String deletequery = "delete from appointments where appointment_Id=?";
 		Connection con = null;
 		int rows = 0;
 		PreparedStatement ps = null;
@@ -192,7 +192,7 @@ public class AppointmentDao
 
 	public static Appointment getPatientById(int id) {
 		Appointment ap = null;
-		String selectquery = "select appoint_id,appoint_date,doc_id,patient_name,fees_collected from appointments where appoint_id=?";// need
+		String selectquery = "select appointment_Id,appointment_Date,doctor_id,patient_name,fees_collected from appointments where appointment_Id=?";// need
 																																		// change
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -231,7 +231,7 @@ public class AppointmentDao
 	public static List<Appointment> getAllAppoinments() {
 		List<Appointment> listOfAppointments = new ArrayList<Appointment>();
 		Appointment ap = null;
-		String selectquery = "select appoint_id,appoint_date,doc_id,patient_name,fees_collected from appointments";
+		String selectquery = "select appointment_Id,appointment_Date,doctor_id,patient_name,fees_collected from appointments";
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -277,7 +277,7 @@ public class AppointmentDao
 	public static List<Appointment> getInnerJoinDoctorAndAppointment() {
 		List<Appointment> listOfAppointments = new ArrayList<Appointment>();
 		Appointment ap = null;
-		String selectquery = "select a.doctor_id,a.name,a.dob,a.speciality,a.city,a.phone_number,a.std_fees,b.appoint_id,b.appoint_date,b.doctor_id,b.patient_name,fees_collected from doctor a,appointment b where a.doctor_id= b.doctor_id";
+		String selectquery = "select a.doctor_id,a.doctor_name,a.date_of_birth,a.speciality,a.city,a.phone_number,a.fees,b.appointment_Id,b.appointment_Date,b.doctor_id,b.patient_name,fees_collected from doctor a,appointment b where a.doctor_id= b.doctor_id";
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -327,7 +327,7 @@ public class AppointmentDao
 	public static List<Appointment> getLeftOuterJoinDoctorAndAppointment() {
 		List<Appointment> listOfAppointments = new ArrayList<Appointment>();
 		Appointment ap = null;
-		String selectquery = "select a.doctor_id,a.name,a.dob,a.speciality,a.city,a.phone_number,a.std_fees,b.appoint_id,b.appoint_date,b.doc_id,b.patient_name,fees_collected from doctor a,appointments b where a.doc_id= b.doc_id(+)";
+		String selectquery = "select a.doctor_id,a.doctor_name,a.date_of_birth,a.speciality,a.city,a.phone_number,a.fees,b.appointment_Id,b.appointment_Date,b.doctor_id,b.patient_name,fees_collected from doctor a,appointments b where a.doctor_id= b.doctor_id(+)";
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -377,7 +377,7 @@ public class AppointmentDao
 	public static List<Appointment> getRightOuterJoinDoctorAndAppointment() {
 		List<Appointment> listOfAppointments = new ArrayList<Appointment>();
 		Appointment ap = null;
-		String selectquery = "select a.doctor_id,a.name,a.dob,a.speciality,a.city,a.phone_number,a.std_fees,b.appoint_id,b.appoint_date,b.doc_id,b.patient_name,fees_collected from doctor a,appointments b where a.doc_id(+)= b.doc_id";
+		String selectquery = "select a.doctor_id,a.doctor_name,a.date_of_birth,a.speciality,a.city,a.phone_number,a.fees,b.appointment_Id,b.appointment_Date,b.doctor_id,b.patient_name,fees_collected from doctor a,appointments b where a.doctor_id(+)= b.doctor_id";
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -427,7 +427,7 @@ public class AppointmentDao
 	public static List<Appointment> getFullOuterJoinDoctorAndAppointment() {
 		List<Appointment> listOfAppointments = new ArrayList<Appointment>();
 		Appointment ap = null;
-		String selectquery = "select a.doc_id,a.name,a.dob,a.speciality,a.city,a.phone_number,a.std_fees,b.appoint_id,b.appoint_date,b.doc_id,b.patient_name,fees_collected from doctor a full outer join appointments b on a.doc_id= b.doc_id";
+		String selectquery = "select a.doctor_id,a.doctor_name,a.date_of_birth,a.speciality,a.city,a.phone_number,a.fees,b.appointment_Id,b.appointment_Date,b.doctor_id,b.patient_name,fees_collected from doctor a full outer join appointments b on a.doctor_id= b.doctor_id";
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

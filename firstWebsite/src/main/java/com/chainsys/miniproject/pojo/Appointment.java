@@ -4,34 +4,34 @@ import java.util.Date;
 
 public class Appointment extends Doctor 
 {
-	private int appoint_Id;
-	private Date appoint_Date;
-	private int doc_Id;
+	private int appointment_Id;
+	private Date appointment_Date;
+	private int doctor_Id;
 	private String patient_Name;
 	private long fees_Collected;
 
 	public int getAppoint_Id() {
-		return appoint_Id;
+		return appointment_Id;
 	}
 
 	public void setAppoint_Id(int appoint_Id) {
-		this.appoint_Id = appoint_Id;
+		this.appointment_Id = appoint_Id;
 	}
 
 	public Date getAppoint_Date() {
-		return appoint_Date;
+		return appointment_Date;
 	}
 
 	public void setAppoint_Date(Date emp_HireDate) {
-		this.appoint_Date = emp_HireDate;
+		this.appointment_Date = emp_HireDate;
 	}
 
 	public int getDoc_Id() {
-		return doc_Id;
+		return doctor_Id;
 	}
 
 	public void setDoc_Id(int doc_Id) {
-		this.doc_Id = doc_Id;
+		this.doctor_Id = doc_Id;
 	}
 
 	public String getPatient_Name() {

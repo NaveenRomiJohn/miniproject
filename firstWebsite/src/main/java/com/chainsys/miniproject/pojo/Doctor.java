@@ -7,12 +7,12 @@ import java.util.Date;
  */
 public class Doctor {
 	private int doctor_id;
-	private String name;
-	private Date dob;
+	private String doctor_name;
+	private Date date_of_birth;
 	private String speciality;
 	private String city;
 	private long phone_number;
-	private float std_Fees;
+	private float fees;
 
 	public int getDoctor_id() {
 		return doctor_id;
@@ -23,19 +23,19 @@ public class Doctor {
 	}
 
 	public String getName() {
-		return name;
+		return doctor_name;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.doctor_name = name;
 	}
 
 	public Date getDate() {
-		return dob;
+		return date_of_birth;
 	}
 
 	public void setDate(Date date) {
-		this.dob = date;
+		this.date_of_birth = date;
 	}
 
 	public String getSpeciality() {
@@ -63,11 +63,11 @@ public class Doctor {
 	}
 
 	public float getStd_Fees() {
-		return std_Fees;
+		return fees;
 	}
 
 	public void setStd_Fees(float std_Fees) {
-		this.std_Fees = std_Fees;
+		this.fees = std_Fees;
 	}
 
 }

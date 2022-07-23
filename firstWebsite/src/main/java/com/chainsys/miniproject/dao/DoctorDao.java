@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.chainsys.miniproject.pojo.Doctor;
 
 public class DoctorDao 
@@ -38,7 +37,7 @@ public class DoctorDao
 	    return new java.util.Date(date.getTime());
 	}
    public static int insertDoctor(Doctor newdoc) {
-		String insertquery = "insert into Doctor(doctor_id,name,dob,speciality,city,phone_number,std_fees) values (?,?,?,?,?,?,?)";
+		String insertquery = "insert into Doctor(doctor_id,doctor_name,date_of_birth,speciality,city,phone_number,fees) values (?,?,?,?,?,?,?)";
 		Connection con = null;
 		int rows =0;
 		PreparedStatement ps = null;
@@ -73,7 +72,7 @@ public class DoctorDao
 	}
    
    public static int updateDoctor(Doctor newdoc) {
-		String updatequery = "update doctor set name=?,dob=?,speciality=?,city=?,phone_number=?,std_fees=? where doctor_id=?";
+		String updatequery = "update doctor set doctor_name=?,date_of_birth=?,speciality=?,city=?,phone_number=?,fees=? where doctor_id=?";
 		Connection con = null;
 		int rows =0;
 		PreparedStatement ps = null;
@@ -106,7 +105,7 @@ public class DoctorDao
 	}
    
    public static int updateDoctorName(String name,int id) {
-		String updatequery = "update doctor set NAME=? where doctor_id=?";
+		String updatequery = "update doctor set doctor_name=? where doctor_id=?";
 		Connection con = null;
 		int rows =0;
 		PreparedStatement ps = null;
@@ -135,7 +134,7 @@ public class DoctorDao
 	}
    
    public static int updateDoctorFees(float fees, int id) {
-		String updatequery = "update doctor set std_fees=? where doctor_id=?";
+		String updatequery = "update doctor set fees=? where doctor_id=?";
 		Connection con = null;
 		int rows =0;
 		PreparedStatement ps = null;
@@ -192,7 +191,7 @@ public class DoctorDao
    
    public static Doctor getDoctorById(int id) {
 	    Doctor dr =null;
-		String selectquery = "select doctor_id,name,speciality,city,phone_number,std_fees from doctor where doctor_id=?";//need change 
+		String selectquery = "select doctor_id,doctor_name,speciality,city,phone_number,fees from doctor where doctor_id=?";//need change 
 		Connection con = null;
 		PreparedStatement ps = null;
 		 ResultSet rs  = null;
@@ -238,7 +237,7 @@ public class DoctorDao
    public static List<Doctor> getAllDoctor(){
 		 List<Doctor> listOfDoctors = new ArrayList<Doctor>();
 		 Doctor dr =null;
-			String selectquery = "select doctor_id,name,speciality,city,phone_number,std_fees from doctor";
+			String selectquery = "select doctor_id,doctor_name,speciality,city,phone_number,fees from doctor";
 			Connection con = null;
 			PreparedStatement ps = null;
 			 ResultSet rs  = null;
